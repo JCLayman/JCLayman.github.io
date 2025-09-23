@@ -1,0 +1,111 @@
+body {
+    background-color: rgb(93, 171, 235);
+}
+
+p {
+    font-size: large;
+}
+
+
+#wrapper {
+    margin-left: 150px;
+    margin-right: 150px;
+    border-bottom: Solid #363636 25px;
+    height: 2800px;
+    background-color:whitesmoke;
+    font-family: Georgia, 'Times New Roman', Times, serif
+
+}
+
+#header {
+    height: 60px;
+    border-top: solid #363636 25px;
+    border-bottom: solid #363636 25px;
+    background:  rgb(156, 156, 156);
+    padding-top: 15px;
+    align-content: center;
+    text-align: center;
+}
+
+#careerContainer{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color:rgb(93, 171, 235) ;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+a.button {
+    padding: 10px;
+    border: 3px outset buttonborder;
+    border-radius: 7px;
+    color: black;
+    background-color: whitesmoke;
+    text-decoration: none;
+    margin: 20px;
+}
+
+#leftColumn {
+    float: left;
+    background:  #363636;
+    width: 25px;
+    height: 2825px;
+}
+
+#rightColumn {
+    float: right;
+    background:  #363636;
+    width: 25px;
+    height: 2825px;
+}
+
+#profilePic {
+    display: block;
+    align-content: center;
+    width: 350px;
+    margin: auto;
+    border-radius: 10px;
+    border: Solid #363636 5px;
+    margin-top: 10px;
+}
+
+
+
+#pageContent {
+    float: left;
+    width: 90%;
+    padding-left: 1%;
+    line-height: 1.6;
+}
+
+#content {
+    text-align: center;
+}
+
+#content p {
+    margin-top: 1px;
+}
+
+#pageContent ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    max-width: 1000px;
+}
+
+
+#pageContent li {
+    display: flow-root;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    font-size: large;
+   
+}
+
+#pageContent p {
+    padding-left: 1.25rem;
+}
+
+#pageContent Img {
+    width: 400px
+}
+
