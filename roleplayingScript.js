@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     var fields = document.querySelectorAll("input, textarea");
 
@@ -6,30 +5,22 @@ document.addEventListener("DOMContentLoaded", function () {
         var savedValue = localStorage.getItem(field.id);
 
         if (savedValue !== null) {
-            if (field.type === "checkbox" || field.type === "radio") {
+            if (field.type === "checkbox") {
                 field.checked = savedValue === "true";
             } else {
                 field.value = savedValue;
             }
         }
 
-        field.addEventListener("input", function () {
-            if (field.id) {
-                if (field.type === "checkbox" || field.type === "radio") {
-                    localStorage.setItem(field.id, field.checked);
-                } else {
-                    localStorage.setItem(field.id, field.value);
-                }
-            }
-            updateAllCalculatedValues();
-            checkDeathSaves();
-        });
-
-        if (field.type === "radio") {
+        if (field.type === "checkbox") {
             field.addEventListener("change", function () {
-                if (field.id) {
-                    localStorage.setItem(field.id, field.checked);
-                }
+                if (field.id) localStorage.setItem(field.id, field.checked);
+                updateAllCalculatedValues();
+                checkDeathSaves();
+            });
+        } else {
+            field.addEventListener("input", function () {
+                if (field.id) localStorage.setItem(field.id, field.value);
                 updateAllCalculatedValues();
                 checkDeathSaves();
             });
@@ -55,10 +46,8 @@ function getModifier(score) {
 function getModifierFromInput(id) {
     var inputElement = document.getElementById(id);
     if (inputElement) {
-        var value = parseInt(inputElement.value);
-        if (!isNaN(value)) {
-            return getModifier(value);
-        }
+        var value = parseInt(inputElement.value, 10);
+        if (!isNaN(value)) return getModifier(value);
     }
     return 0;
 }
@@ -66,8 +55,9 @@ function getModifierFromInput(id) {
 function updateAllCalculatedValues() {
     var proficiencyBonusElement = document.getElementById("proficiency-value");
     var proficiencyBonus = 0;
-    if (proficiencyBonusElement && !isNaN(parseInt(proficiencyBonusElement.value))) {
-        proficiencyBonus = parseInt(proficiencyBonusElement.value);
+    if (proficiencyBonusElement) {
+        var pb = parseInt(proficiencyBonusElement.value, 10);
+        if (!isNaN(pb)) proficiencyBonus = pb;
     }
 
     var abilities = {
@@ -91,14 +81,17 @@ function updateAllCalculatedValues() {
         var baseMod = abilities[ability];
         var checkbox = document.querySelector("#" + ability + "-saving-throw .proficiency-checkbox");
         var bonusInput = document.getElementById(ability + "-saving-bonus");
-        var bonus = (bonusInput && !isNaN(parseInt(bonusInput.value))) ? parseInt(bonusInput.value) : 0;
-        var proficient = (checkbox && checkbox.checked);
+        var bonus = 0;
+        if (bonusInput) {
+            var b = parseInt(bonusInput.value, 10);
+            if (!isNaN(b)) bonus = b;
+        }
+        var proficient = !!(checkbox && checkbox.checked);
         var total = baseMod + bonus + (proficient ? proficiencyBonus : 0);
         var spanOutput = document.getElementById(ability + "-saving-value");
-        if (spanOutput) {
-            spanOutput.textContent = (total >= 0 ? "+" : "") + total;
-        }
+        if (spanOutput) spanOutput.textContent = (total >= 0 ? "+" : "") + total;
     }
+
     var skillList = [
         { id: "acrobatics", ability: "dexterity" },
         { id: "animal-handling", ability: "wisdom" },
@@ -124,13 +117,15 @@ function updateAllCalculatedValues() {
         var baseMod = abilities[skill.ability];
         var checkbox = document.querySelector("#" + skill.id + " .proficiency-checkbox");
         var bonusInput = document.getElementById(skill.id + "-bonus");
-        var bonus = (bonusInput && !isNaN(parseInt(bonusInput.value))) ? parseInt(bonusInput.value) : 0;
-        var proficient = (checkbox && checkbox.checked);
+        var bonus = 0;
+        if (bonusInput) {
+            var b = parseInt(bonusInput.value, 10);
+            if (!isNaN(b)) bonus = b;
+        }
+        var proficient = !!(checkbox && checkbox.checked);
         var total = baseMod + bonus + (proficient ? proficiencyBonus : 0);
         var spanOutput = document.getElementById(skill.id + "-value");
-        if (spanOutput) {
-            spanOutput.textContent = (total >= 0 ? "+" : "") + total;
-        }
+        if (spanOutput) spanOutput.textContent = (total >= 0 ? "+" : "") + total;
     });
 }
 
@@ -139,15 +134,11 @@ function checkDeathSaves() {
     var failureCount = 0;
 
     for (var i = 1; i <= 3; i++) {
-        var successRadio = document.getElementById("radio-success" + i);
-        var failRadio = document.getElementById("radio-fail" + i);
+        var successCheck = document.getElementById("checkbox-success" + i);
+        var failCheck = document.getElementById("checkbox-fail" + i);
 
-        if (successRadio && successRadio.checked) {
-            successCount++;
-        }
-        if (failRadio && failRadio.checked) {
-            failureCount++;
-        }
+        if (successCheck && successCheck.checked) successCount++;
+        if (failCheck && failCheck.checked) failureCount++;
     }
 
     if (successCount === 3) {
@@ -161,16 +152,16 @@ function checkDeathSaves() {
 
 function resetDeathSaves() {
     for (var i = 1; i <= 3; i++) {
-        var successRadio = document.getElementById("radio-success" + i);
-        var failRadio = document.getElementById("radio-fail" + i);
+        var successCheck = document.getElementById("checkbox-success" + i);
+        var failCheck = document.getElementById("checkbox-fail" + i);
 
-        if (successRadio) {
-            successRadio.checked = false;
-            localStorage.setItem(successRadio.id, false);
+        if (successCheck) {
+            successCheck.checked = false;
+            localStorage.setItem(successCheck.id, false);
         }
-        if (failRadio) {
-            failRadio.checked = false;
-            localStorage.setItem(failRadio.id, false);
+        if (failCheck) {
+            failCheck.checked = false;
+            localStorage.setItem(failCheck.id, false);
         }
     }
 }
