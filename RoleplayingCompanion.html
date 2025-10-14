@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href = "roleplayingCompanionStyle.css">
+        <script src="roleplayingScript.js" defer></script>
+        <title>Roleplaying Game - Character Sheet</title>
+    </head>
+    <body>
+        <h1>Roleplaying Game - Character Sheet</h1>
+        <br>
+        
+        <section class="character-info">
+            <div class="info-row top-row">
+                <div class="info-block wide">
+                    <label for="name-value">Name</label>
+                    <input type="text" id="name-value" class="normal-input"/>
+                </div>
+                <div class="info-block wide">
+                    <label for="player-name-value">Player Name</label>
+                    <input type="text" id="player-name-value" class="normal-input"/>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-block">
+                    <label for="class-value">Class</label>
+                    <input type="text" id="class-value" class="normal-input"/>
+                </div>
+
+                <div class="info-block">
+                    <label for="level-value">Level</label>
+                    <input type="number" id="level-value" class="normal-input"/>
+                </div>
+                <div class="info-block">
+                    <label for="experience-points-value">XP</label>
+                    <input type="number" id="experience-points-value" class="normal-input"/>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-block">
+                <label for="background-value">Background</label>
+                <input type="text" id="background-value" class="normal-input"/>
+                </div>
+                <div class="info-block">
+                    <label for="race-value">Race</label>
+                    <input type="text" id="race-value" class="normal-input"/>
+                </div>
+                <div class="info-block">
+                    <label for="alignment-value">Alignment</label>
+                    <input type="text" id="alignment-value" class="normal-input"/>
+                </div>
+            </div>
+        </section>
+
+      <section class="abilities-section parchment-box">
+
+        <div class="abilities-row">
+            <div class="ability-block">
+            <h3>Strength</h3>
+            <input type="number" id="strength-value" placeholder="Value" class="normal-input">
+            <div class="modifier">Modifier: <span id="strength-mod">0</span></div>
+            </div>
+            <div class="ability-block">
+            <h3>Dexterity</h3>
+            <input type="number" id="dexterity-value" placeholder="Value" class="normal-input">
+            <div class="modifier">Modifier: <span id="dexterity-mod">0</span></div>
+            </div>
+            <div class="ability-block">
+            <h3>Constitution</h3>
+            <input type="number" id="constitution-value" placeholder="Value" class="normal-input">
+            <div class="modifier">Modifier: <span id="constitution-mod">0</span></div>
+            </div>
+            <div class="ability-block">
+            <h3>Intelligence</h3>
+            <input type="number" id="intelligence-value" placeholder="Value" class="normal-input">
+            <div class="modifier">Modifier: <span id="intelligence-mod">0</span></div>
+            </div>
+            <div class="ability-block">
+            <h3>Wisdom</h3>
+            <input type="number" id="wisdom-value" placeholder="Value" class="normal-input">
+            <div class="modifier">Modifier: <span id="wisdom-mod">0</span></div>
+            </div>
+            <div class="ability-block">
+            <h3>Charisma</h3>
+            <input type="number" id="charisma-value" placeholder="Value" class="normal-input">
+            <div class="modifier">Modifier: <span id="charisma-mod">0</span></div>
+            </div>
+        </div>
+
+        <div class="lower-abilities-grid">
+            <div class="left-column">
+            <div class="info-box">
+                <h3>Proficiency Bonus</h3>
+                <input class="normal-input" type="number" id="proficiency-value">
+            </div>
+            <div class="info-box">
+                <h3>Inspiration</h3>
+                <input class="normal-input" type="number" id="inspiration-value">
+            </div>
+            <div class="info-box">
+                <h3>Passive Wisdom</h3>
+                <input class="normal-input" type="number" id="passive-wisdom-value">
+            </div>
+            <div class="tall-box" id="saving-throws">
+                <h3>Saving Throws</h3>
+                <ul>
+                    <li id="strength-saving-throw">
+                        <input type="checkbox" class="proficiency-checkbox" id="strength-saving-prof"><span class="saving-throw-title">Strength:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="strength-saving-bonus"><span class="small-value" id="strength-saving-value"></span>
+                    </li>
+                    <li id="dexterity-saving-throw">
+                        <input type="checkbox" class="proficiency-checkbox" id="dexterity-saving-prof"><span class="saving-throw-title">Dexterity:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="dexterity-saving-bonus"><span class="small-value" id="dexterity-saving-value"></span>
+                    </li>
+                    <li id="constitution-saving-throw">
+                        <input type="checkbox" class="proficiency-checkbox" id="constitution-saving-prof"><span class="saving-throw-title">Constitution:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="constitution-saving-bonus"><span class="small-value" id="constitution-saving-value">0</span>
+                    </li>
+                    <li id="intelligence-saving-throw">
+                        <input type="checkbox" class="proficiency-checkbox" id="intelligence-saving-prof"><span class="saving-throw-title">Intelligence:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="intelligence-saving-bonus"><span class="small-value" id="intelligence-saving-value"></span>
+                    </li>
+                    <li id="wisdom-saving-throw">
+                        <input type="checkbox" class="proficiency-checkbox" id="wisdom-saving-prof"><span class="saving-throw-title">Wisdom:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="wisdom-saving-bonus"><span class="small-value" id="wisdom-saving-value"></span>
+                    </li>
+                    <li id="charisma-saving-throw">
+                        <input type="checkbox" class="proficiency-checkbox" id="charisma-saving-prof"><span class="saving-throw-title">Charisma:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="charisma-saving-bonus"><span class="small-value" id="charisma-saving-value"></span>
+                    </li>
+                </ul>
+            </div>
+            </div>
+
+            <div class="right-column">
+            <div class="tall-box" id="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li id="acrobatics">
+                        <input type="checkbox" class="proficiency-checkbox" id="acrobatics-prof"><span class="skills-title">Acrobatics:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="acrobatics-bonus"><span class="small-value" id="acrobatics-value"></span>
+                    </li>
+                    <li id="animal-handling">
+                        <input type="checkbox" class="proficiency-checkbox" id="animal-handling-prof"><span class="skills-title">Animal Handling:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="animal-handling-bonus"><span class="small-value" id="animal-handling-value"></span>
+                    </li>
+                    <li id="arcana">
+                        <input type="checkbox" class="proficiency-checkbox" id="arcana-prof"><span class="skills-title">Arcana:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="arcana-bonus"><span class="small-value" id="arcana-value"></span>
+                    </li>
+                    <li id="athletics">
+                        <input type="checkbox" class="proficiency-checkbox" id="athletics-prof"><span class="skills-title">Athletics:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="athletics-bonus"><span class="small-value" id="athletics-value"></span>
+                    </li>
+                    <li id="deception">
+                        <input type="checkbox" class="proficiency-checkbox" id="deception-prof"><span class="skills-title">Deception:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="deception-bonus"><span class="small-value" id="deception-value"></span>
+                    </li>
+                    <li id="history">
+                        <input type="checkbox" class="proficiency-checkbox" id="history-prof"><span class="skills-title">History:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="history-bonus"><span class="small-value" id="history-value"></span>
+                    </li>
+                    <li id="insight">
+                        <input type="checkbox" class="proficiency-checkbox" id="insight-prof"><span class="skills-title">Insight:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number'id="insight-bonus"><span class="small-value" id="insight-value"></span>
+                    </li>
+                    <li id="intimidation">
+                        <input type="checkbox" class="proficiency-checkbox" id="intimidation-prof"><span class="skills-title">Intimidation:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number'id="intimidation-bonus"><span class="small-value" id="intimidation-value"></span>
+                    </li>
+                    <li id="investigation">
+                        <input type="checkbox" class="proficiency-checkbox" id="investigation-prof"><span class="skills-title">Investigation:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="investigation-bonus"><span class="small-value" id="investigation-value"></span>
+                    </li>
+                    <li id="medicine">
+                        <input type="checkbox" class="proficiency-checkbox" id="medicine-prof"><span class="skills-title">Medicine:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="medicine-bonus"><span class="small-value" id="medicine-value"></span>
+                    </li>
+                    <li id="nature">
+                        <input type="checkbox" class="proficiency-checkbox" id="nature-prof"><span class="skills-title">Nature:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="nature-bonus"><span class="small-value" id="nature-value"></span>
+                    </li>
+                    <li id="perception">
+                        <input type="checkbox" class="proficiency-checkbox" id="perception-prof"><span class="skills-title">Perception:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="perception-bonus"><span class="small-value" id="perception-value"></span>
+                    </li>
+                    <li id="performance">
+                        <input type="checkbox" class="proficiency-checkbox" id="performance-prof"><span class="skills-title">Performance:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="performance-bonus"><span class="small-value" id="performance-value"></span>
+                    </li>
+                    <li id="persuasion">
+                        <input type="checkbox" class="proficiency-checkbox" id="persuasion-prof"><span class="skills-title">Persuasion:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="persuasion-bonus"><span class="small-value" id="persuasion-value"></span>
+                    </li>
+                    <li id="religion">
+                        <input type="checkbox" class="proficiency-checkbox" id="religion-prof"><span class="skills-title">Religion:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="religion-bonus"><span class="small-value" id="religion-value"></span>
+                    </li>
+                    <li id="sleight">
+                        <input type="checkbox" class="proficiency-checkbox" id="sleight-prof"><span class="skills-title">Sleight of Hand:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="sleight-bonus"><span class="small-value" id="sleight-value"></span>
+                    </li>
+                    <li id="stealth">
+                        <input type="checkbox" class="proficiency-checkbox" id="stealth-prof"><span class="skills-title">Stealth:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="stealth-bonus"><span class="small-value" id="stealth-value"></span>
+                    </li>
+                    <li id="survival">
+                        <input type="checkbox" class="proficiency-checkbox" id="survival-prof"><span class="skills-title">Survival:</span><span> Custom Bonus &#8594; </span><input class="small-input" type='number' id="survival-bonus"><span class="small-value" id="survival-value"></span>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </section>  
+
+    <section class="stats-section parchment-box">
+    <div class="stats-grid">
+        
+        <div class="stat-block">
+        <h3>Armor Class</h3>
+        <input type="number" id="armor-class-value">
+        </div>
+
+        <div class="stat-block">
+        <h3>initiative</h3>
+        <input type="number" id="initiative-value">
+        </div>
+
+        <div class="stat-block">
+        <h3>Speed</h3>
+        <input type="number" id="speed-value">
+        </div>
+
+        <div class="stat-block">
+        <h3>Current Hit Points</h3>
+        <input type="number" id="current-hp-value">
+        </div>
+
+        <div class="stat-block">
+        <h3>Temporary Hit Points</h3>
+        <input type="number" id="temporary-hp-value">
+        </div>
+
+        <div class="stat-block">
+        <h3>Death Saves</h3>
+        <div class="death-saves-box">
+            <table>
+            <thead>
+                <tr><th></th><th>1</th><th>2</th><th>3</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Successes</td>
+                <td><input type="checkbox" name="success" value="1" id="radio-success1"></td>
+                <td><input type="checkbox" name="success" value="2" id="radio-success2"></td>
+                <td><input type="checkbox" name="success" value="3" id="radio-success3"></td>
+                </tr>
+                <tr>
+                <td>Failures</td>
+                <td><input type="checkbox" name="failure" value="1" id="radio-fail1"></td>
+                <td><input type="checkbox" name="failure" value="2" id="radio-fail2"></td>
+                <td><input type="checkbox" name="failure" value="3" id="radio-fail3"></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="combat-inventory-section">
+        <div class="combat-grid">
+
+            <div class="combat-block">
+            <h3>Attacks</h3>
+            <table class="attacks-table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Bonus</th>
+                    <th>Damage</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="text" id="attack1-name"></td>
+                    <td><input type="number" id="attack1-bonus"></td>
+                    <td><input type="text" id="attack1-damage"></td>
+                    <td><input type="text" id="attack1-notes"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="attack2-name"></td>
+                    <td><input type="number" id="attack2-bonus"></td>
+                    <td><input type="text" id="attack2-damage"></td>
+                    <td><input type="text" id="attack2-notes"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="attack3-name"></td>
+                    <td><input type="number" id="attack3-bonus"></td>
+                    <td><input type="text" id="attack3-damage"></td>
+                    <td><input type="text" id="attack3-notes"></td>
+                </tr>
+                </tbody>
+            </table>
+            <h3>Additional Attack Information</h3>
+            <textarea id="additional-attack-value"></textarea>
+            </div>
+
+            <div class="combat-block">
+            <h3>Equipment</h3>
+            <textarea id="equipment-value" class="equipment-textarea"></textarea>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="extra-info-section">
+        <div class="extra-info-grid">
+
+            <div class="extra-column">
+            <h3>Other Proficiencies and Languages</h3>
+            <textarea id="proficiencies-languages-value"></textarea>
+            </div>
+
+            <div class="extra-column">
+            <h3>Features and Traits</h3>
+            <textarea id="features-value"></textarea>
+            </div>
+
+            <div class="extra-full">
+            <h3>Additional Character Information</h3>
+            <textarea id="additional-info-value"></textarea>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="button-wrapper">
+    <div class="dice-grid">
+        <button onclick="rollDice(4)">Roll d4</button>
+        <button onclick="rollDice(6)">Roll d6</button>
+        <button onclick="rollDice(8)">Roll d8</button>
+        <button onclick="rollDice(10)">Roll d10</button>
+        <button onclick="rollDice(20)">Roll d20</button>
+    </div>
+
+</section>
+
+    <div class="button-wrapper">
+        <button id="reset-button">Reset Sheet</button>
+    </div>
+    
+
+</body>
+</html>
+       
+
+
+
+
+
+
+
