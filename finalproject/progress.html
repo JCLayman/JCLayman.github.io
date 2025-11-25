@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalPal - Progress</title>
+  <link rel="stylesheet" href="css/calpal.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="images/CalPal Logo.png" alt="CalPal Logo">
+        <div>
+          <h1>CALPAL</h1>
+          <p>Your everyday health companion</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="calorie-calculator.html">Calculator</a></li>
+          <li><a href="food-diary.html">Food Diary</a></li>
+          <li><a href="exercise-tracker.html">Exercise</a></li>
+          <li><a href="weekly-schedule.html">Schedule</a></li>
+          <li><a href="progress.html" class="active">Progress</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-title">
+    <h2>Progress Overview</h2>
+    <p>Review your health journey and achievements</p>
+  </div>
+
+  <div class="main">
+
+    <!-- ===================== -->
+    <!-- DASHBOARD CARD BLOCKS -->
+    <!-- ===================== -->
+
+    <div class="card-grid">
+      <!-- Weight Progress Card -->
+      <div class="card">
+        <h3>Weight Progress</h3>
+        <div class="metric">
+          <div id="weight-current" class="metric-value">170 lbs</div>
+          <p id="weight-change" class="metric-sub">Down 2.0 lbs this week</p>
+        </div>
+        <div id="weight-graph" class="graph"></div>
+      </div>
+
+      <!-- Calorie Balance Card -->
+      <div class="card">
+        <h3>Calorie Balance</h3>
+        <div class="metric">
+          <div id="calories-balance" class="metric-value">0</div>
+          <p id="calories-balance-detail" class="metric-sub"></p>
+        </div>
+        <div id="calories-graph" class="graph"></div>
+      </div>
+    </div>
+
+    <!-- Weekly Summary Card -->
+    <div class="card">
+      <h3>Weekly Summary</h3>
+      <div class="result-grid">
+        <div class="result-item"><div class="result-value">7</div><div class="result-label">Days Tracked</div></div>
+        <div class="result-item"><div class="result-value">5</div><div class="result-label">Workouts Logged</div></div>
+        <div class="result-item"><div class="result-value">85%</div><div class="result-label">Goal Adherence</div></div>
+        <div class="result-item"><div class="result-value">65</div><div class="result-label">Fit Points Earned</div></div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!--     PROGRESS AREA    -->
+    <!-- ===================== -->
+
+    <div class="card">
+      <h3>Detailed Progress</h3>
+      <p class="metric-sub">Visualize your weight or calories over time.</p>
+
+      <!-- Controls -->
+      <div class="progress-controls">
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="progress-metric">Metric</label>
+            <select id="progress-metric">
+              <option value="weight">Weight</option>
+              <option value="caloriesIn">Calories In</option>
+              <option value="caloriesOut">Calories Out</option>
+              <option value="netCalories">Net Calories</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="progress-range">Time Range</label>
+            <select id="progress-range">
+              <option value="7">Last 7 days</option>
+              <option value="30">Last 30 days</option>
+              <option value="90">Last 90 days</option>
+              <option value="365">Last Year</option>
+              <option value="all">All Time</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="progress-grouping">Grouping</label>
+            <select id="progress-grouping">
+              <option value="day">Daily</option>
+              <option value="month">Monthly</option>
+              <option value="year">Yearly</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Quick Log -->
+      <div class="progress-log">
+        <h4 class="metric-label">Quick Log</h4>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="log-date">Date</label>
+            <input type="date" id="log-date">
+          </div>
+
+          <div class="form-group">
+            <label for="log-weight">Weight (lbs)</label>
+            <input type="number" id="log-weight" placeholder="170">
+          </div>
+
+          <div class="form-group">
+            <label for="log-calories">Calories In</label>
+            <input type="number" id="log-calories" placeholder="2100">
+          </div>
+        </div>
+
+        <button id="save-progress-log">Save Entry</button>
+        <p id="log-message" class="metric-sub"></p>
+      </div>
+
+      <!-- Chart -->
+      <div class="results">
+        <canvas id="progressChart" height="120"></canvas>
+      </div>
+
+      <!-- Entries Table -->
+      <h4 class="metric-label" style="margin-top: 1.5rem;">Logged Entries</h4>
+
+      <div class="results">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Weight</th>
+              <th>Calories In</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="progress-entries-body">
+          </tbody>
+        </table>
+
+        <button id="clear-progress-log" class="btn btn-secondary" style="margin-top: 1rem;">
+          Clear All Entries
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js + Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/progress.js"></script>
+</body>
+</html>

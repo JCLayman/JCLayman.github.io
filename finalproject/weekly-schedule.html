@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalPal - Weekly Schedule</title>
+  <link rel="stylesheet" href="css/calpal.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="images/CalPal Logo.png" alt="CalPal Logo">
+        <div>
+          <h1>CALPAL</h1>
+          <p>Your everyday health companion</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="calorie-calculator.html">Calculator</a></li>
+          <li><a href="food-diary.html">Food Diary</a></li>
+          <li><a href="exercise-tracker.html">Exercise</a></li>
+          <li><a href="weekly-schedule.html" class="active">Schedule</a></li>
+          <li><a href="progress.html">Progress</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-title">
+    <h2>Weekly Schedule</h2>
+    <p>Plan your workouts, meals, and health reminders</p>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <h3>Add to Schedule</h3>
+      <div id="message"></div>
+
+      <div class="form-group">
+        <label for="week-select">Week</label>
+        <select id="week-select">
+          <option value="1">Week 1</option>
+          <option value="2">Week 2</option>
+          <option value="3">Week 3</option>
+          <option value="4">Week 4</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="day">Day</label>
+          <select id="day">
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="event-type">Type</label>
+          <select id="event-type">
+            <option>Workout</option>
+            <option>Meal Plan</option>
+            <option>Reminder</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="event-title">Description</label>
+        <input type="text" id="event-title" placeholder="e.g., Morning jog in the park">
+      </div>
+
+      <div class="btn-group">
+        <button id="add-event-btn">Add to Schedule</button>
+        <button id="clear-all-btn" class="btn-secondary">Clear All</button>
+      </div>
+    </div>
+
+    <div class="card">
+  <h3>This Week's Schedule</h3>
+
+  <!-- Week Navigation (Moved Here) -->
+  <div class="week-nav" style="margin-bottom: 15px; text-align:center;">
+    <button id="prev-week" class="week-btn">←</button>
+    <span id="week-label">Week 1</span>
+    <button id="next-week" class="week-btn">→</button>
+  </div>
+
+  <div id="day-buttons" class="day-buttons"></div>
+
+      <div id="events-container">
+        <ul id="events-list" class="event-list">
+          <li style="text-align:center;color:#a0a0a0;border:none;background:transparent;">
+            No events for Monday yet.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+   <script src="js/data.js"></script>
+  <script src="js/schedule.js"></script>
+</body>
+</html>
